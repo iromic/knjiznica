@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+<?php
+if (isset($_COOKIE['uname'])){
+$prijavljen=true;
+$razina=$_COOKIE['razina'];
+}
+else {
+$prijavljen=false;
+$razina=0;
+}
+?>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
       <meta charset="utf-8" />
@@ -31,10 +42,35 @@
                     </a>
                 </div>
               
-                 <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
-
-                </span>
+                  <?php
+if(!isset($_COOKIE['uname']))
+    {
+                echo' <form method="post" action="prijava.php" >
+                     <ul class="nav navbar-nav" style="float: right; padding: 1%">
+                    
+                     <li>
+                    <input type="email" class="form-control" placeholder="Korisnicko ime:" name="username">
+                    </li>
+                    <li>
+                    <input type="password" class="form-control" placeholder="Lozinka:" name="password">
+                    </li>
+                    <input class="btn btn-primary" type="submit" name="Prijava " value="Prijavi se" >
+                    </ul>
+                    </form>';
+                }
+                else
+                {
+                    echo '
+                    <form method="post" action="logout.php" >
+                    <ul class="nav navbar-nav" style="float: right; padding: 1%">
+                    <li>
+                    <input class="btn btn-primary" type="submit" name="Prijava " value="Odjavi se" >
+                    </li
+                    </ul>
+                    </form>
+                    ';
+                }
+                    ?>
             </div>
         </div>
         <!-- /. NAV TOP  -->
@@ -44,7 +80,7 @@
                  
 
  <li >
-                        <a href="index.html" ><i class="fa fa-desktop "></i>Dashboard <span class="badge"></span></a>
+                        <a href="index.php" ><i class="fa fa-desktop "></i>Dashboard <span class="badge"></span></a>
                     </li>
                    
 
@@ -58,7 +94,7 @@
 
 
                  <li>
-                        <a href="blank2.html"><i class="fa fa-qrcode "></i>jquery</a>
+                        <a href="blank2.php"><i class="fa fa-qrcode "></i>jquery</a>
                     </li>
                    
                
@@ -66,7 +102,7 @@
                         <a href="wspretraga.php"><i class="fa fa-edit "></i>wsdl</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table "></i>bez wsdl-a</a>
+                        <a href="mvc.php"><i class="fa fa-table "></i>mvc</a>
                     </li>
                     
                 </ul>

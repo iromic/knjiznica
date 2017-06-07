@@ -41,20 +41,24 @@ $tmp   = array();
         array_push($response, $tmp);
 
     $privremeni = $privremeni
-      ."\n ime: " . $row["ime"]
+     ."\n ime: " . $row["ime"] 
       ."\n prezime: " . $row["prezime"] 
       ."\n naziv_knjige: " . $row["naziv_knjige"]
       ."\n naziv_autora: " . $row["naziv_autora"]
       ."\n \n";
+	 
 }
 
 
 
-    //$jsonn = json_encode($response);
+    $jsonn = json_encode($response);
   
   
-  //return $jsonn;
+  return $jsonn;
       return $privremeni;
+	  
+	  
+
 }
 
 $server->AddFunction("doHello");
